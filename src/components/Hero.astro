@@ -10,16 +10,16 @@ const DEADLINE = "2026-09-10T23:59:00-04:00";
   <Starfield />
 
   <div class="hero__inner container">
-    <img
-      class="hero__logo"
-      src="/nova-logo.png"
-      alt="Nova starburst logo"
-      width="132"
-      height="132"
-      fetchpriority="high"
-    />
-
-    <h1 class="hero__title" id="hero-title">Nova</h1>
+    <h1 class="hero__title" id="hero-title">
+      <img
+        class="hero__logo"
+        src="/nova-logo.png"
+        alt="Nova"
+        width="440"
+        height="304"
+        fetchpriority="high"
+      />
+    </h1>
     <p class="hero__tagline">Real cases. Real pressure. Rising stars.</p>
     <p class="hero__sub">
       Ontario's high school business case competition. Open to every
@@ -68,24 +68,21 @@ const DEADLINE = "2026-09-10T23:59:00-04:00";
     flex-direction: column;
     align-items: center;
   }
+  /* The logo is a full wordmark (it already contains "Nova"),
+     so it carries the title on its own. */
+  .hero__title {
+    margin: 0 0 0.4rem;
+    line-height: 0;
+  }
   .hero__logo {
-    width: clamp(96px, 22vw, 132px);
+    width: min(440px, 82vw);
     height: auto;
-    filter: drop-shadow(0 0 28px rgba(43, 110, 150, 0.7));
+    filter: drop-shadow(0 0 34px rgba(43, 110, 150, 0.55));
     animation: floaty 6s ease-in-out infinite;
   }
   @keyframes floaty {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  .hero__title {
-    font-size: clamp(3.5rem, 14vw, 7rem);
-    margin: 0.4rem 0 0;
-    background: linear-gradient(180deg, #fff 40%, #b9c9d4 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: 0.01em;
+    50% { transform: translateY(-9px); }
   }
   .hero__tagline {
     font-family: var(--font-head);
