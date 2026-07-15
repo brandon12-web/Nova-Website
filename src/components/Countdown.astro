@@ -1,0 +1,137 @@
+---
+// Live countdown to the application deadline.
+// The target date is emitted into a data attribute and the
+// client script ticks it every second. Renders a sensible
+// static fallback if JS is unavailable.
+interface Props {
+  deadline: string; // ISO 8601
+  label?: string;
+}
+const { deadline, label = "Applications close in" } = Astro.props;
+---
+
+<div class="countdown" data-deadline={deadline} role="timer" aria-live="off">
+  <p class="countdown__label">{label}</p>
+  <div class="countdown__grid">
+    <div class="countdown__unit">
+      <span class="countdown__num" data-unit="days">--</span>
+      <span class="countdown__word">Days</span>
+    </div>
+    <span class="countdown__sep" aria-hidden="true">:</span>
+    <div class="countdown__unit">
+      <span class="countdown__num" data-unit="hours">--</span>
+      <span class="countdown__word">Hours</span>
+    </div>
+    <span class="countdown__sep" aria-hidden="true">:</span>
+    <div class="countdown__unit">
+      <span class="countdown__num" data-unit="minutes">--</span>
+      <span class="countdown__word">Minutes</span>
+    </div>
+    <span class="countdown__sep" aria-hidden="true">:</span>
+    <div class="countdown__unit">
+      <span class="countdown__num" data-unit="seconds">--</span>
+      <span class="countdown__word">Seconds</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .countdown {
+    background: rgba(19, 19, 23, 0.6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem 1.25rem;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  }
+  .countdown__label {
+    margin: 0 0 0.7rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .countdown__grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .countdown__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 3.2rem;
+  }
+  .countdown__num {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 6vw, 2.6rem);
+    line-height: 1;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 18px rgba(43, 110, 150, 0.55);
+  }
+  .countdown__word {
+    margin-top: 0.35rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .countdown__sep {
+    font-family: var(--font-head);
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    color: var(--steel);
+    line-height: 1;
+    padding-top: 0.15em;
+  }
+  .countdown--closed .countdown__grid { display: none; }
+  .countdown__closed-msg {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin: 0.25rem 0 0;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".countdown").forEach((el) => {
+    const target = new Date(el.dataset.deadline || "").getTime();
+    if (Number.isNaN(target)) return;
+
+    const nums = {
+      days: el.querySelector<HTMLElement>('[data-unit="days"]'),
+      hours: el.querySelector<HTMLElement>('[data-unit="hours"]'),
+      minutes: el.querySelector<HTMLElement>('[data-unit="minutes"]'),
+      seconds: el.querySelector<HTMLElement>('[data-unit="seconds"]'),
+    };
+    const pad = (n: number) => String(n).padStart(2, "0");
+
+    function tick() {
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        el.classList.add("countdown--closed");
+        if (!el.querySelector(".countdown__closed-msg")) {
+          const msg = document.createElement("p");
+          msg.className = "countdown__closed-msg";
+          msg.textContent = "Applications are now closed.";
+          el.appendChild(msg);
+        }
+        clearInterval(timer);
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      if (nums.days) nums.days.textContent = String(d);
+      if (nums.hours) nums.hours.textContent = pad(h);
+      if (nums.minutes) nums.minutes.textContent = pad(m);
+      if (nums.seconds) nums.seconds.textContent = pad(s);
+    }
+
+    tick();
+    const timer = setInterval(tick, 1000);
+  });
+</script>

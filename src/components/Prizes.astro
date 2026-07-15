@@ -1,0 +1,96 @@
+---
+// Placeholder prize layout — swap the `amount` values for real dollar
+// figures once announced. Structure stays identical.
+const prizes = [
+  { place: "2nd Place", amount: "$—", note: "Runner-up team", tier: "silver" },
+  { place: "1st Place", amount: "$—", note: "Nova champions", tier: "gold" },
+  { place: "3rd Place", amount: "$—", note: "Third-place team", tier: "bronze" },
+];
+---
+
+<section class="section" id="prizes" aria-labelledby="prizes-title">
+  <div class="container">
+    <div class="prizes__head reveal">
+      <span class="section__eyebrow">What's on the line</span>
+      <h2 class="section__title" id="prizes-title">Prizes</h2>
+      <p class="section__lead">
+        Nova awards <strong>cash prizes</strong> to top teams. Exact amounts
+        will be announced soon &mdash; check back or follow us for the reveal.
+      </p>
+    </div>
+
+    <ul class="prizes__grid reveal" aria-label="Prize tiers">
+      {prizes.map((p) => (
+        <li class={`card prize prize--${p.tier}`}>
+          <span class="prize__place">{p.place}</span>
+          <span class="prize__amount">{p.amount}</span>
+          <span class="prize__note">{p.note}</span>
+        </li>
+      ))}
+    </ul>
+
+    <p class="prizes__foot reveal">Dollar figures to be announced.</p>
+  </div>
+</section>
+
+<style>
+  .prizes__head { max-width: 60ch; margin-bottom: clamp(2rem, 5vw, 3rem); }
+  .prizes__grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+  .prize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+    padding-block: 2.25rem;
+  }
+  .prize__place {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .prize__amount {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 9vw, 3.4rem);
+    line-height: 1;
+    color: #fff;
+  }
+  .prize__note { color: var(--muted); font-size: 0.95rem; }
+
+  .prize--gold {
+    border-color: rgba(198, 162, 74, 0.55);
+    background:
+      radial-gradient(120% 90% at 50% 0%, rgba(198, 162, 74, 0.14), transparent 65%),
+      var(--bg-elev);
+    box-shadow: 0 12px 44px rgba(198, 162, 74, 0.14);
+  }
+  .prize--gold .prize__amount {
+    color: var(--gold);
+    text-shadow: 0 0 24px rgba(198, 162, 74, 0.4);
+  }
+  .prize--gold .prize__place { color: var(--gold); }
+
+  .prize--silver { border-color: rgba(200, 208, 216, 0.28); }
+  .prize--bronze { border-color: rgba(180, 130, 90, 0.28); }
+
+  .prizes__foot {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 760px) {
+    .prizes__grid { grid-template-columns: repeat(3, 1fr); }
+    /* lift the champion tier on desktop */
+    .prize--gold { transform: translateY(-14px); }
+  }
+</style>

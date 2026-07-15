@@ -1,0 +1,92 @@
+---
+// Placeholder copy — refine later.
+---
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container about">
+    <div class="about__intro reveal">
+      <span class="section__eyebrow">About Nova</span>
+      <h2 class="section__title" id="about-title">A proving ground for Ontario's next business leaders</h2>
+    </div>
+
+    <div class="about__body reveal">
+      <p>
+        Nova is a high school business case competition built to give students
+        a taste of real strategic decision-making. Teams tackle authentic
+        business problems under time pressure, then defend their thinking in
+        front of a panel of judges &mdash; the same skills that separate good
+        analysts from great ones.
+      </p>
+      <p>
+        We created Nova because too few students get the chance to test
+        themselves on problems that don't have a tidy answer in the back of a
+        textbook. Whether you're a first-time competitor or a seasoned case
+        cracker, Nova is designed to stretch how you think, communicate, and
+        perform when it counts.
+      </p>
+      <p>
+        No prior experience required. Just curiosity, a team of four, and the
+        drive to rise to the moment.
+      </p>
+    </div>
+
+    <ul class="about__stats reveal" aria-label="Key facts">
+      <li class="card about__stat">
+        <span class="about__stat-num">2</span>
+        <span class="about__stat-word">Competitive rounds</span>
+      </li>
+      <li class="card about__stat">
+        <span class="about__stat-num">4</span>
+        <span class="about__stat-word">Students per team</span>
+      </li>
+      <li class="card about__stat">
+        <span class="about__stat-num">9&ndash;12</span>
+        <span class="about__stat-word">Open to all grades</span>
+      </li>
+      <li class="card about__stat">
+        <span class="about__stat-num">1</span>
+        <span class="about__stat-word">Unforgettable day</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  .about__body p:last-child { margin-bottom: 0; }
+  .about__body {
+    font-size: 1.075rem;
+    color: var(--muted);
+    max-width: 70ch;
+  }
+  .about__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .about__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+    align-items: center;
+    padding-block: 1.5rem;
+  }
+  .about__stat-num {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    color: var(--steel-bright);
+    line-height: 1;
+  }
+  .about__stat-word {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  @media (min-width: 760px) {
+    .about__stats { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>

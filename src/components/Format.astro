@@ -1,0 +1,121 @@
+---
+const steps = [
+  {
+    minutes: "90",
+    unit: "minutes",
+    title: "Prepare",
+    desc: "Your team receives a real business case and has 90 minutes to analyze it and build your strategy.",
+  },
+  {
+    minutes: "10",
+    unit: "minutes",
+    title: "Present",
+    desc: "Deliver your recommendation to a panel of judges in a focused 10-minute presentation.",
+  },
+  {
+    minutes: "3",
+    unit: "minutes",
+    title: "Q&A",
+    desc: "Defend your thinking in a 3-minute question-and-answer round with the judges.",
+  },
+];
+---
+
+<section class="section" id="format" aria-labelledby="format-title">
+  <div class="container">
+    <div class="format__head reveal">
+      <span class="section__eyebrow">How it works</span>
+      <h2 class="section__title" id="format-title">Two rounds. One structure. Real pressure.</h2>
+      <p class="section__lead">
+        Nova runs over <strong>two rounds</strong>. In each round, your team is
+        handed a real business problem and moves through the same three phases
+        &mdash; prepare, present, and defend.
+      </p>
+    </div>
+
+    <ol class="format__steps reveal" aria-label="Per-round structure">
+      {steps.map((s, i) => (
+        <li class="card format__step">
+          <div class="format__step-badge" aria-hidden="true">{i + 1}</div>
+          <div class="format__time">
+            <span class="format__min">{s.minutes}</span>
+            <span class="format__unit">{s.unit}</span>
+          </div>
+          <h3 class="format__step-title">{s.title}</h3>
+          <p class="format__step-desc">{s.desc}</p>
+        </li>
+      ))}
+    </ol>
+
+    <p class="format__note reveal">
+      <span aria-hidden="true">&#9733;</span>
+      This full 90 / 10 / 3 cycle repeats in <strong>both</strong> rounds of the competition.
+    </p>
+  </div>
+</section>
+
+<style>
+  .format__head { max-width: 65ch; margin-bottom: clamp(2rem, 5vw, 3rem); }
+  .format__steps {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    counter-reset: step;
+  }
+  .format__step {
+    position: relative;
+    padding-top: 2.4rem;
+  }
+  .format__step-badge {
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 44px; height: 44px;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-head);
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--steel), var(--steel-bright));
+    border-radius: var(--radius) 0 var(--radius) 0;
+  }
+  .format__time {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+  .format__min {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 8vw, 3.4rem);
+    line-height: 1;
+    color: var(--steel-bright);
+    text-shadow: 0 0 20px rgba(43, 110, 150, 0.4);
+  }
+  .format__unit {
+    font-size: 0.95rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .format__step-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+  .format__step-desc {
+    color: var(--muted);
+    margin: 0;
+    font-size: 0.98rem;
+  }
+  .format__note {
+    margin-top: 1.75rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.98rem;
+  }
+  .format__note span { color: var(--gold); margin-right: 0.35rem; }
+
+  @media (min-width: 760px) {
+    .format__steps { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

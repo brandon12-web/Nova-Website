@@ -1,0 +1,110 @@
+---
+// Sponsor tiers. Add real sponsors by replacing the placeholder
+// slots in each tier's `slots` count / logo markup later.
+const tiers = [
+  { name: "Gold", tier: "gold", slots: 3, blurb: "Our headline partners" },
+  { name: "Silver", tier: "silver", slots: 4, blurb: "Supporting sponsors" },
+  { name: "Bronze", tier: "bronze", slots: 6, blurb: "Community backers" },
+];
+---
+
+<section class="section" id="sponsors" aria-labelledby="sponsors-title">
+  <div class="container">
+    <div class="sponsors__head reveal">
+      <span class="section__eyebrow">Backed by the best</span>
+      <h2 class="section__title" id="sponsors-title">Sponsors</h2>
+      <p class="section__lead">
+        Nova is made possible by partners who believe in the next generation
+        of business talent. Want your brand in front of Ontario's brightest
+        students?
+      </p>
+      <a class="btn btn--gold sponsors__cta" href="#apply">Become a Sponsor</a>
+    </div>
+
+    <div class="sponsors__tiers reveal">
+      {tiers.map((t) => (
+        <div class={`sponsors__tier sponsors__tier--${t.tier}`}>
+          <div class="sponsors__tier-head">
+            <h3 class="sponsors__tier-name">{t.name}</h3>
+            <span class="sponsors__tier-blurb">{t.blurb}</span>
+          </div>
+          <ul class="sponsors__logos" aria-label={`${t.name} tier sponsors`}>
+            {Array.from({ length: t.slots }).map(() => (
+              <li class="sponsors__logo">
+                <span class="sponsors__logo-placeholder">Your logo here</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sponsors__head { max-width: 62ch; margin-bottom: clamp(2rem, 5vw, 3rem); }
+  .sponsors__cta { margin-top: 1.25rem; }
+
+  .sponsors__tiers { display: grid; gap: 2rem; }
+  .sponsors__tier-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sponsors__tier-name {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  .sponsors__tier--gold .sponsors__tier-name { color: var(--gold); }
+  .sponsors__tier--silver .sponsors__tier-name { color: #cbd5df; }
+  .sponsors__tier--bronze .sponsors__tier-name { color: #c99a6e; }
+  .sponsors__tier-blurb { color: var(--muted); font-size: 0.9rem; }
+
+  .sponsors__logos {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sponsors__logo {
+    display: grid;
+    place-items: center;
+    min-height: 88px;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+  }
+  .sponsors__logo:hover { border-color: var(--steel); background: var(--steel-soft); }
+  .sponsors__logo-placeholder {
+    font-size: 0.82rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* Gold tier gets the premium treatment */
+  .sponsors__tier--gold .sponsors__logo {
+    min-height: 118px;
+    border-style: solid;
+    border-color: rgba(198, 162, 74, 0.35);
+    background:
+      radial-gradient(120% 100% at 50% 0%, rgba(198, 162, 74, 0.08), transparent 70%),
+      rgba(255, 255, 255, 0.02);
+  }
+  .sponsors__tier--gold .sponsors__logo:hover {
+    border-color: var(--gold);
+    background: var(--gold-soft);
+  }
+
+  @media (min-width: 700px) {
+    .sponsors__tier--gold .sponsors__logos { grid-template-columns: repeat(3, 1fr); }
+    .sponsors__tier--silver .sponsors__logos { grid-template-columns: repeat(4, 1fr); }
+    .sponsors__tier--bronze .sponsors__logos { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 1000px) {
+    .sponsors__tier--bronze .sponsors__logos { grid-template-columns: repeat(6, 1fr); }
+  }
+</style>
