@@ -68,6 +68,14 @@ const {
         els.forEach((el) => io.observe(el));
       }
 
+      // Nav gains a shadow once the page scrolls
+      const nav = document.querySelector(".t-nav");
+      if (nav) {
+        const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 8);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      }
+
       // Mobile nav toggle
       const toggle = document.querySelector(".t-nav__toggle");
       const menu = document.querySelector(".t-nav__mobile");
