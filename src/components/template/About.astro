@@ -1,0 +1,21 @@
+---
+import { site } from "../../config/template";
+const { about } = site;
+---
+<section class="t-section" id="about">
+  <div class="t-container t-about__grid">
+    <div class="t-reveal">
+      <span class="t-eyebrow">{about.eyebrow}</span>
+      <h2 class="t-title">{about.title}</h2>
+      {about.body.map((p) => <p class="t-lead">{p}</p>)}
+    </div>
+    <div class="t-stats t-reveal">
+      {about.stats.map((s) => (
+        <div class="t-stat">
+          <div class="t-stat__value">{s.value}</div>
+          <div class="t-stat__label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import { site } from "../../config/template";
+---
+<header class="t-nav">
+  <div class="t-container t-nav__inner">
+    <a class="t-nav__brand" href="#top">
+      <span class="t-nav__logo">{site.brand.charAt(0)}</span>
+      {site.brand}
+    </a>
+
+    <nav class="t-nav__links" aria-label="Primary">
+      {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+
+    <div class="t-nav__cta">
+      <a class="t-btn t-btn--primary" href={site.ctaHref}>{site.ctaLabel}</a>
+    </div>
+
+    <button class="t-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="t-nav__mobile t-container" aria-label="Mobile">
+    {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    <a href={site.ctaHref}>{site.ctaLabel}</a>
+  </nav>
+</header>

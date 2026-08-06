@@ -1,0 +1,33 @@
+---
+/* Prosper-Ontario-style conference / case-competition template.
+   Route: /template/  — edit content in src/config/template.ts
+   and brand colours/fonts in src/styles/template.css. */
+import TemplateLayout from "../../layouts/TemplateLayout.astro";
+import Nav from "../../components/template/Nav.astro";
+import Hero from "../../components/template/Hero.astro";
+import About from "../../components/template/About.astro";
+import Included from "../../components/template/Included.astro";
+import Schedule from "../../components/template/Schedule.astro";
+import Speakers from "../../components/template/Speakers.astro";
+import Competition from "../../components/template/Competition.astro";
+import Register from "../../components/template/Register.astro";
+import Sponsors from "../../components/template/Sponsors.astro";
+import FAQ from "../../components/template/FAQ.astro";
+import Footer from "../../components/template/Footer.astro";
+---
+
+<TemplateLayout>
+  <Nav />
+  <main>
+    <Hero />
+    <About />
+    <Included />
+    <Schedule />
+    <Speakers />
+    <Competition />
+    <Register />
+    <Sponsors />
+    <FAQ />
+  </main>
+  <Footer />
+</TemplateLayout>

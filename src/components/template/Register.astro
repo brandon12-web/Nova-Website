@@ -1,0 +1,20 @@
+---
+import { site } from "../../config/template";
+const { register } = site;
+---
+<section class="t-section t-section--alt" id="register">
+  <div class="t-container">
+    <div class="t-center t-reveal">
+      <span class="t-eyebrow">{register.eyebrow}</span>
+      <h2 class="t-title">{register.title}</h2>
+      <p class="t-lead">{register.lead}</p>
+    </div>
+
+    <div class="t-register__card t-reveal">
+      <div class="t-register__price">{register.price}</div>
+      <p class="t-register__note">{register.priceNote}</p>
+      <a class="t-btn t-btn--primary" href={register.ctaHref} style="width:100%">{register.ctaLabel}</a>
+      <p class="t-register__fine">{register.finePrint}</p>
+    </div>
+  </div>
+</section>

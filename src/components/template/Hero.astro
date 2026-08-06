@@ -1,0 +1,30 @@
+---
+import { site } from "../../config/template";
+---
+<section class="t-hero" id="top">
+  <div class="t-container t-hero__inner">
+    <h1>{site.eventName}</h1>
+    <p class="t-hero__tagline">{site.tagline}</p>
+    <p class="t-hero__blurb">{site.heroBlurb}</p>
+
+    <div class="t-hero__facts">
+      <span class="t-hero__fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        {site.date}
+      </span>
+      <span class="t-hero__fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        {site.location}
+      </span>
+      <span class="t-hero__fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        {site.audience}
+      </span>
+    </div>
+
+    <div class="t-hero__actions">
+      <a class="t-btn t-btn--primary" href={site.ctaHref}>{site.ctaLabel}</a>
+      <a class="t-btn t-btn--on-dark" href="#about">Learn more</a>
+    </div>
+  </div>
+</section>
