@@ -3,9 +3,12 @@ import { site } from "../../config/template";
 ---
 <header class="t-nav">
   <div class="t-container t-nav__inner">
-    <a class="t-nav__brand" href="#top">
-      <span class="t-nav__logo">{site.brand.charAt(0)}</span>
-      {site.brand}
+    <a class="t-nav__brand" href="#top" aria-label={`${site.brand} home`}>
+      <svg class="t-nav__star" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 1C12 7 7 12 1 12 7 12 12 17 12 23 12 17 17 12 23 12 17 12 12 7 12 1Z" fill="var(--brand)"/>
+        <path d="M12 5C12 8.5 8.5 12 5 12 8.5 12 12 15.5 12 19 12 15.5 15.5 12 19 12 15.5 12 12 8.5 12 5Z" transform="rotate(45 12 12)" fill="var(--cyan)"/>
+      </svg>
+      <span class="t-nav__word">{site.brand}</span>
     </a>
 
     <nav class="t-nav__links" aria-label="Primary">

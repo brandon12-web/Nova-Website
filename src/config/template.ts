@@ -11,17 +11,17 @@
 
 export const site = {
   /* --- Brand / event identity --- */
-  brand: "Catalyst",                       // short name shown in the nav / footer
-  eventName: "Catalyst Conference",        // full event name
-  tagline: "Ontario's Premier High School Business Case Competition",
+  brand: "Nova",                           // short name shown in the nav / footer
+  eventName: "Nova Case Competition",      // full event name
+  tagline: "Where Tomorrow's Business Leaders Have Their Breakout Moment",
   // One or two lines that sit under the hero title.
   heroBlurb:
-    "A one-day immersion into the world of business — hands-on workshops, industry mentors, and a live case competition built for ambitious high school students.",
+    "Nova is the defining stage where the region's next generation of business leaders have their breakout moment — through hands-on workshops, industry mentors, and a live case competition.",
 
   /* --- Key event facts (shown in the hero + footer) --- */
-  date: "April 4, 2026",
-  location: "Ivey Business School, London ON",
-  audience: "Open to all Ontario high school students",
+  date: "Spring 2026",
+  location: "London, Ontario",
+  audience: "Open to all high school students",
 
   /* --- Primary call-to-action --- */
   ctaLabel: "Register Now",
@@ -39,11 +39,11 @@ export const site = {
 
   /* --- About section --- */
   about: {
-    eyebrow: "About the Conference",
+    eyebrow: "About Nova",
     title: "Where the next generation of leaders begins",
     body: [
-      "Catalyst Conference immerses high school students in the multidisciplinary world of business through interactive workshops, panels with industry professionals, and a signature case competition.",
-      "Whether you are certain business is your calling or simply curious, Catalyst gives you a real taste of strategy, marketing, finance and entrepreneurship — alongside like-minded students from across the province.",
+      "Nova immerses high school students in the multidisciplinary world of business through interactive workshops, panels with industry professionals, and a signature case competition.",
+      "Whether you are certain business is your calling or simply curious, Nova gives you a real taste of strategy, marketing, finance and entrepreneurship — alongside like-minded students from across the region.",
     ],
     // Small stat highlights
     stats: [
@@ -57,14 +57,14 @@ export const site = {
   included: {
     eyebrow: "Registration Includes",
     title: "Everything you need for the day",
-    lead: "One ticket covers your full Catalyst experience, start to finish.",
+    lead: "One ticket covers your full Nova experience, start to finish.",
     items: [
       { icon: "prep", title: "Pre-conference prep", body: "Guided prep sessions so every delegate arrives ready to compete." },
       { icon: "workshop", title: "Two live workshops", body: "Interactive sessions led by professionals across business disciplines." },
       { icon: "case", title: "Case competition", body: "An intensive, judged case challenge with real-world stakes." },
       { icon: "network", title: "Networking", body: "Connect with students and mentors from multiple fields." },
       { icon: "food", title: "Lunch & refreshments", body: "Meals and refreshments provided throughout the day." },
-      { icon: "swag", title: "Certificate & swag", body: "A certificate of participation and Catalyst delegate kit." },
+      { icon: "swag", title: "Certificate & swag", body: "A certificate of participation and Nova delegate kit." },
     ],
   },
 
@@ -102,7 +102,7 @@ export const site = {
     eyebrow: "The Case Competition",
     title: "Real business problems, one afternoon to solve them",
     body: [
-      "At the heart of Catalyst is a live case competition. Teams receive a real-world business challenge, develop a strategy, and present their recommendation to a panel of judges.",
+      "At the heart of Nova is a live case competition. Teams receive a real-world business challenge, develop a strategy, and present their recommendation to a panel of judges.",
       "No prior experience required — prep sessions and mentors set every team up to succeed.",
     ],
     highlights: [
@@ -148,12 +148,13 @@ export const site = {
 
   /* --- Footer / contact --- */
   footer: {
-    blurb: "Catalyst Conference — immersing the next generation of student leaders in the world of business.",
-    email: "hello@example.com",
+    blurb: "Nova Case Competition — immersing the next generation of student leaders in the world of business.",
+    domain: "novacasecomp.com",
+    email: "info@novacasecomp.com",
     socials: [
       { label: "Instagram", href: "#" },
       { label: "LinkedIn", href: "#" },
-      { label: "Email", href: "mailto:hello@example.com" },
+      { label: "Email", href: "mailto:info@novacasecomp.com" },
     ],
   },
 };

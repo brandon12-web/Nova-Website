@@ -10,25 +10,27 @@
    │  src/config/template.ts.)                                  │
    └──────────────────────────────────────────────────────────┘ */
 .t-root {
-  /* Brand colours */
-  --brand:        #12385f;   /* primary — deep navy */
-  --brand-dark:   #0d2843;   /* darker navy for gradients/headers */
-  --brand-light:  #2f6fae;   /* lighter blue for links/hover */
-  --accent:       #e0a83d;   /* warm gold — buttons, highlights */
-  --accent-dark:  #c48f22;   /* gold hover */
+  /* Brand colours — Nova Case Competition brand kit */
+  --brand:        #0B1E3D;   /* primary — deep navy (#0B1E3D) */
+  --brand-dark:   #06122a;   /* darker navy for gradients/footer */
+  --brand-light:  #007a9e;   /* accessible cyan for text links on white */
+  --cyan:         #00D4FF;   /* bright cyan — decorative accents/glows */
+  --accent:       #FFB800;   /* amber/gold — buttons, highlights */
+  --accent-dark:  #d99a00;   /* gold hover */
 
   /* Neutrals */
-  --bg:        #ffffff;      /* page background */
-  --bg-alt:    #f5f7fa;      /* alternating section background */
+  --bg:        #ffffff;      /* page background — clean white */
+  --bg-alt:    #F5F7FA;      /* alternating section background (#F5F7FA) */
   --surface:   #ffffff;      /* cards */
-  --text:      #16202e;      /* body text */
+  --text:      #1b2536;      /* body text */
   --muted:     #5a6472;      /* secondary text */
   --border:    #e4e8ee;      /* hairlines / card borders */
 
-  /* Typography — swap for your own font stack (or load web fonts
-     in TemplateLayout.astro) */
-  --font-head: "Fraunces", "Georgia", serif;
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Typography — Nova brand kit: Impact headers, Poppins body.
+     Oswald is loaded as a web-safe stand-in for Impact so headings
+     render consistently across all devices. */
+  --font-head: "Impact", "Oswald", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 /* ────────────────────── end brand block ────────────────────── */
 
@@ -81,7 +83,7 @@
   font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent-dark);
+  color: var(--brand-light);
   margin-bottom: 0.6rem;
 }
 .t-title { font-size: clamp(1.8rem, 4.5vw, 2.9rem); margin-bottom: 0.75rem; }
@@ -143,8 +145,9 @@
   border-bottom: 1px solid var(--border);
 }
 .t-nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 68px; }
-.t-nav__brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-head); font-weight: 700; font-size: 1.25rem; color: var(--brand); }
-.t-nav__logo { width: 34px; height: 34px; border-radius: 9px; background: var(--brand); color: #fff; display: grid; place-items: center; font-weight: 800; }
+.t-nav__brand { display: flex; align-items: center; gap: 0.55rem; color: var(--brand); }
+.t-nav__star { width: 26px; height: 26px; flex: none; }
+.t-nav__word { font-family: var(--font-head); font-weight: 700; font-size: 1.6rem; letter-spacing: 0.02em; color: var(--brand); line-height: 1; }
 .t-nav__links { display: none; align-items: center; gap: 1.6rem; }
 .t-nav__links a { color: var(--text); font-weight: 500; font-size: 0.95rem; }
 .t-nav__links a:hover { color: var(--accent-dark); }
@@ -169,25 +172,31 @@
 .t-nav__mobile.is-open { display: flex; }
 .t-nav__mobile a { padding: 0.7rem 0; color: var(--text); font-weight: 500; border-bottom: 1px solid var(--border); }
 
-/* ---------- HERO ---------- */
+/* ---------- HERO (clean, white, professional) ---------- */
 .t-hero {
   position: relative;
-  background: linear-gradient(160deg, var(--brand-dark) 0%, var(--brand) 60%, var(--brand-light) 140%);
-  color: #fff;
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-alt) 100%);
+  color: var(--text);
   overflow: hidden;
+  border-bottom: 1px solid var(--border);
 }
+/* soft cyan glow, top-right — nods to the Nova starburst without noise */
 .t-hero::after {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(60% 60% at 85% 10%, rgba(224, 168, 61, 0.22), transparent 60%);
-  pointer-events: none;
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(46% 55% at 88% 6%, rgba(0, 212, 255, 0.16), transparent 60%),
+    radial-gradient(40% 45% at 6% 96%, rgba(11, 30, 61, 0.05), transparent 60%);
 }
-.t-hero__inner { position: relative; padding-block: clamp(4rem, 12vw, 8rem); max-width: 46rem; }
-.t-hero h1 { color: #fff; font-size: clamp(2.4rem, 7vw, 4.4rem); margin-bottom: 0.35em; }
-.t-hero__tagline { color: rgba(255,255,255,0.85); font-size: clamp(1.05rem, 2.6vw, 1.4rem); font-weight: 600; margin-bottom: 1rem; }
-.t-hero__blurb { color: rgba(255,255,255,0.78); font-size: 1.1rem; max-width: 40rem; margin-bottom: 2rem; }
-.t-hero__facts { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-bottom: 2rem; }
-.t-hero__fact { display: flex; align-items: center; gap: 0.55rem; color: #fff; font-weight: 500; }
-.t-hero__fact svg { width: 20px; height: 20px; color: var(--accent); flex: none; }
+.t-hero__inner { position: relative; z-index: 1; padding-block: clamp(4rem, 12vw, 7.5rem); max-width: 46rem; }
+.t-hero h1 { color: var(--brand); font-size: clamp(2.6rem, 7.5vw, 4.6rem); margin-bottom: 0.3em; }
+.t-hero__tagline {
+  color: var(--brand); font-size: clamp(1.05rem, 2.6vw, 1.35rem); font-weight: 600;
+  margin-bottom: 1rem; padding-left: 0.9rem; border-left: 4px solid var(--cyan);
+}
+.t-hero__blurb { color: var(--muted); font-size: 1.1rem; max-width: 40rem; margin-bottom: 2rem; }
+.t-hero__facts { display: flex; flex-wrap: wrap; gap: 0.9rem 2rem; margin-bottom: 2rem; }
+.t-hero__fact { display: flex; align-items: center; gap: 0.55rem; color: var(--brand); font-weight: 500; }
+.t-hero__fact svg { width: 20px; height: 20px; color: var(--brand-light); flex: none; }
 .t-hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
 
 /* ---------- ABOUT ---------- */
