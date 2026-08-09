@@ -1,33 +1,31 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Nav from "../components/Nav.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Format from "../components/Format.astro";
-import Eligibility from "../components/Eligibility.astro";
-import Timeline from "../components/Timeline.astro";
-import Prizes from "../components/Prizes.astro";
-import Sponsors from "../components/Sponsors.astro";
-import FAQ from "../components/FAQ.astro";
-import Apply from "../components/Apply.astro";
-import Footer from "../components/Footer.astro";
+/* Nova Case Competition — homepage.
+   Content lives in src/config/template.ts and brand colours/fonts in
+   the "EDIT THESE" block of src/styles/template.css. */
+import TemplateLayout from "../layouts/TemplateLayout.astro";
+import Nav from "../components/template/Nav.astro";
+import Hero from "../components/template/Hero.astro";
+import About from "../components/template/About.astro";
+import Included from "../components/template/Included.astro";
+import Competition from "../components/template/Competition.astro";
+import Prizes from "../components/template/Prizes.astro";
+import Register from "../components/template/Register.astro";
+import Sponsors from "../components/template/Sponsors.astro";
+import FAQ from "../components/template/FAQ.astro";
+import Footer from "../components/template/Footer.astro";
 ---
 
-<BaseLayout>
+<TemplateLayout>
   <Nav />
-  <main id="main">
+  <main>
     <Hero />
     <About />
-    <hr class="comet-divider" />
-    <Format />
-    <Eligibility />
-    <hr class="comet-divider" />
-    <Timeline />
+    <Included />
+    <Competition />
     <Prizes />
-    <hr class="comet-divider" />
+    <Register />
     <Sponsors />
     <FAQ />
-    <Apply />
   </main>
   <Footer />
-</BaseLayout>
+</TemplateLayout>
