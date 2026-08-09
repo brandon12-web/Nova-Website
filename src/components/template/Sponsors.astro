@@ -1,0 +1,19 @@
+---
+import { site } from "../../config/template";
+const { sponsors } = site;
+---
+<section class="t-section t-section--alt" id="sponsors">
+  <div class="t-container">
+    <div class="t-center t-reveal">
+      <span class="t-eyebrow">{sponsors.eyebrow}</span>
+      <h2 class="t-title">{sponsors.title}</h2>
+      <p class="t-lead">{sponsors.lead}</p>
+    </div>
+
+    <div class="t-sponsors__grid t-reveal">
+      {sponsors.logos.map((name) => (
+        <div class="t-sponsor">{name}</div>
+      ))}
+    </div>
+  </div>
+</section>

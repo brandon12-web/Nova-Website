@@ -1,0 +1,21 @@
+---
+import { site } from "../../config/template";
+const { competition } = site;
+---
+<section class="t-section" id="competition">
+  <div class="t-container">
+    <div class="t-competition t-reveal">
+      <span class="t-eyebrow">{competition.eyebrow}</span>
+      <h2 class="t-title">{competition.title}</h2>
+      {competition.body.map((p) => <p>{p}</p>)}
+      <ul class="t-competition__list">
+        {competition.highlights.map((h) => (
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            {h}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

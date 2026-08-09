@@ -1,0 +1,26 @@
+---
+import { site } from "../../config/template";
+const { prizes } = site;
+// medal colours: gold / silver / bronze
+const medals = ["#FFB800", "#BFC6CF", "#CD8B4E"];
+---
+<section class="t-section t-section--alt" id="prizes">
+  <div class="t-container">
+    <div class="t-center t-reveal">
+      <span class="t-eyebrow">{prizes.eyebrow}</span>
+      <h2 class="t-title">{prizes.title}</h2>
+      <p class="t-lead">{prizes.lead}</p>
+    </div>
+
+    <div class="t-grid t-grid--3" style="margin-top:2.5rem">
+      {prizes.tiers.map((tier, i) => (
+        <article class:list={["t-card", "t-prize", "t-reveal", { "t-prize--top": i === 0 }]}>
+          <div class="t-prize__medal" style={`--medal:${medals[i] ?? "#BFC6CF"}`}>{i + 1}</div>
+          <div class="t-prize__place">{tier.place}</div>
+          <div class="t-prize__amount">{tier.amount}</div>
+          <p class="t-prize__note">{tier.note}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

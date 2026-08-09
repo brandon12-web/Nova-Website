@@ -1,0 +1,23 @@
+---
+import { site } from "../../config/template";
+const { schedule } = site;
+---
+<section class="t-section" id="schedule">
+  <div class="t-container">
+    <div class="t-center t-reveal">
+      <span class="t-eyebrow">{schedule.eyebrow}</span>
+      <h2 class="t-title">{schedule.title}</h2>
+      <p class="t-lead">{schedule.lead}</p>
+    </div>
+
+    <div class="t-timeline t-reveal" style="max-width:720px;margin-inline:auto">
+      {schedule.items.map((item) => (
+        <div class="t-tl-item">
+          <span class="t-tl-time">{item.time}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

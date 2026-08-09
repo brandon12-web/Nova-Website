@@ -1,0 +1,25 @@
+---
+import { site } from "../../config/template";
+const { speakers } = site;
+const initials = (name: string) =>
+  name.split(" ").map((w) => w.charAt(0)).slice(0, 2).join("").toUpperCase();
+---
+<section class="t-section t-section--alt" id="speakers">
+  <div class="t-container">
+    <div class="t-center t-reveal">
+      <span class="t-eyebrow">{speakers.eyebrow}</span>
+      <h2 class="t-title">{speakers.title}</h2>
+      <p class="t-lead">{speakers.lead}</p>
+    </div>
+
+    <div class="t-grid t-grid--2 t-grid--3" style="margin-top:2.5rem">
+      {speakers.people.map((person) => (
+        <article class="t-card t-speaker t-reveal">
+          <div class="t-speaker__avatar">{initials(person.name)}</div>
+          <h3>{person.name}</h3>
+          <p>{person.role}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
