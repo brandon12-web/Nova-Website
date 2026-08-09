@@ -302,13 +302,12 @@ img.t-nav__logo { width: auto; height: 52px; max-width: none; }
 .t-register__fine { color: var(--muted); font-size: 0.88rem; margin: 1.2rem 0 0; }
 
 /* ---------- SPONSORS ---------- */
-.t-sponsors__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
-@media (min-width: 640px) { .t-sponsors__grid { grid-template-columns: repeat(3, 1fr); } }
+.t-sponsors__grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
 .t-sponsor {
-  display: grid; place-items: center; min-height: 88px;
+  flex: 0 1 240px; display: grid; place-items: center; min-height: 96px; padding: 1rem 1.5rem;
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-sm); color: var(--muted);
-  font-weight: 700; letter-spacing: 0.02em;
+  border-radius: var(--radius-sm); color: var(--brand);
+  font-weight: 700; letter-spacing: 0.02em; font-size: 1.05rem;
 }
 
 /* ---------- FAQ ---------- */

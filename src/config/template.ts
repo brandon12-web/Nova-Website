@@ -128,7 +128,7 @@ export const site = {
     eyebrow: "Register",
     title: "Secure your spot",
     lead: "Spaces are limited and offered first-come, first-served.",
-    price: "$XX",
+    price: "$25",
     priceNote: "per delegate — includes everything above",
     ctaLabel: "Register Now",
     ctaHref: "#",       // replace with your registration form URL
@@ -140,8 +140,8 @@ export const site = {
     eyebrow: "Our Partners",
     title: "Made possible by",
     lead: "Interested in sponsoring? We'd love to hear from you.",
-    // Add {name, logo?} entries; logos live in /public.
-    logos: ["Partner", "Partner", "Partner", "Partner", "Partner", "Partner"],
+    // Add more names (or swap for logo images in /public) as partners join.
+    logos: ["CPA Canada"],
   },
 
   /* --- FAQ --- */
