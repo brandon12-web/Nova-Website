@@ -19,8 +19,8 @@ export const site = {
     "Nova is the defining stage where the region's next generation of business leaders have their breakout moment — through hands-on workshops, industry mentors, and a live case competition.",
 
   /* --- Key event facts (shown in the hero + footer) --- */
-  date: "Spring 2026",
-  location: "London, Ontario",
+  date: "November 14, 2026",
+  location: "Ontario Tech University · Oshawa, ON",
   audience: "Open to all high school students",
 
   /* --- Primary call-to-action --- */
@@ -31,9 +31,8 @@ export const site = {
   nav: [
     { label: "About", href: "#about" },
     { label: "What's Included", href: "#included" },
-    { label: "Schedule", href: "#schedule" },
-    { label: "Speakers", href: "#speakers" },
     { label: "The Case", href: "#competition" },
+    { label: "Prizes", href: "#prizes" },
     { label: "FAQ", href: "#faq" },
   ],
 
@@ -108,7 +107,19 @@ export const site = {
     highlights: [
       "Teams of 3–4 delegates",
       "Judged by industry professionals",
-      "Cash & scholarship prizes for top teams",
+      "Cash prizes for the top three teams",
+    ],
+  },
+
+  /* --- Prizes --- */
+  prizes: {
+    eyebrow: "Prizes",
+    title: "Compete for the top spot",
+    lead: "The top three teams take home cash prizes.",
+    tiers: [
+      { place: "1st Place", amount: "$1,500", note: "Champion team" },
+      { place: "2nd Place", amount: "$1,000", note: "Runner-up" },
+      { place: "3rd Place", amount: "$500", note: "Third place" },
     ],
   },
 

@@ -278,6 +278,19 @@
 .t-competition__list li { display: flex; align-items: center; gap: 0.7rem; color: #fff; font-weight: 500; }
 .t-competition__list svg { width: 20px; height: 20px; color: var(--accent); flex: none; }
 
+/* ---------- PRIZES ---------- */
+.t-prize { text-align: center; }
+.t-prize--top { border-color: var(--accent); box-shadow: 0 16px 44px rgba(255, 184, 0, 0.20); }
+.t-prize__medal {
+  width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 0.9rem;
+  display: grid; place-items: center; background: var(--medal);
+  font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; color: #1c1403;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.t-prize__place { font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; }
+.t-prize__amount { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 800; color: var(--brand); line-height: 1.1; margin: 0.2rem 0; }
+.t-prize__note { color: var(--muted); margin: 0; font-size: 0.92rem; }
+
 /* ---------- REGISTER ---------- */
 .t-register__card {
   max-width: 560px; margin: 2rem auto 0; text-align: center;
