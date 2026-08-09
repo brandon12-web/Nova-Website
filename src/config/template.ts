@@ -132,7 +132,6 @@ export const site = {
     priceNote: "per delegate — includes everything above",
     ctaLabel: "Register Now",
     ctaHref: "#",       // replace with your registration form URL
-    finePrint: "Group and early-bird rates available on request.",
   },
 
   /* --- Sponsors / partners --- */
@@ -149,11 +148,14 @@ export const site = {
     eyebrow: "FAQ",
     title: "Frequently asked questions",
     items: [
-      { q: "Who can attend?", a: "Any high school student in Ontario is welcome — no prior business experience required." },
-      { q: "Do I need a team?", a: "You can register solo and we'll place you on a team, or sign up with friends." },
-      { q: "What should I bring?", a: "Just yourself and a laptop if you have one. Everything else is provided." },
-      { q: "How much does it cost?", a: "See the Register section above. Group and early-bird rates are available." },
-      { q: "Where is it held?", a: "At the venue listed in the hero. Detailed directions are sent after registration." },
+      { q: "Who can attend?", a: "Any high school student is welcome — all grades, all schools, and no prior business experience required." },
+      { q: "When and where is Nova?", a: "Nova takes place on November 14, 2026 at Ontario Tech University in Oshawa, Ontario. Detailed directions are sent to delegates after registration." },
+      { q: "How much does it cost?", a: "Registration is $25 per delegate, which covers the workshops, the case competition, lunch and refreshments, and networking throughout the day." },
+      { q: "Do I need a team?", a: "Teams are made up of 3–4 delegates. Sign up with friends as a team, or register on your own and we'll place you on one." },
+      { q: "Do I need business experience?", a: "Not at all. Pre-conference prep sessions and on-site mentors make sure every team is ready to compete, whether it's your first competition or your fifth." },
+      { q: "What are the prizes?", a: "The top three teams take home cash prizes: $1,500 for first place, $1,000 for second, and $500 for third." },
+      { q: "What should I bring?", a: "Just yourself and a laptop if you have one — everything else is provided on the day." },
+      { q: "How do I register?", a: "Hit the Register Now button above to secure your spot. Spaces are limited and offered first-come, first-served." },
     ],
   },
 
